@@ -1,0 +1,103 @@
+
+
+                                                            A választható feladatok közül a kompozíciót választottam
+
+                                                                (Az oroklodessel is probalkoztam, kulon packageben
+                                                                            de az csak masodlagos)
+
+
+
+
+1. kerdes
+
+        - Mi a kulonbseg az Exception es a Runtime Exception kozott?
+
+                Runtime Exception akkor keletkezhet amikor valami hiba van a kodunkban ezert a program futasa leallhat.
+                Az Exception szinten akkor keletkezhet amikor valami hiba van a kodunkba viszont ezeket mindenkeppen kezelnunk (catch-elnunk) kell,
+                azert hogy a kodunk ne alljon le.
+
+
+        - Hogyan kell oket hasznalni?
+
+                Altalaban a Runtime Exception megelozheto egy szimpla "if" aggal amit a programkodunk ele irunk.
+                (pl. Nullpointer Exception -> if String sthing != null; vagy ArrayIndexOutOfBounds Exception amikor
+                eloszor megnezzuk hogy a tombunkben egyaltalan letezik e a keresett index szam (String[] sthing = new String[]{}; -> int maxIndex =  sthing.length - 1
+                Az Exceptionoket tudjuk kezelni egy try - catch aggal es akar megoldhatjuk a catch agban a problemat
+                vagy tovabb dobhatjuk es kesobb foglalkozhatunk vele, ez a program futasat nem erinti. (pl. IOException)
+
+
+        - Mire erdemes figyelni a kezelesuknel?
+
+                A Runtine Exception eseteben ugye megelozhetobb a problema szimplan egy jol megirt koddal, ami figyelembe veszi az esetleges
+                hiba lehetosegeket.
+                Az Exception eseteben fontos, hogy ha sikerult elkapni egy hibat a catch agunkban akkor azt elobb vagy utobb
+                kezelnunk is kell, nem lehet mindig csak "tovabb dobni", mert a program hibasan futhat le.
+
+
+
+
+
+2. kerdes
+
+        - Hogyan tudunk egy kollekciobol bejaras kozben elemeket torolni?
+
+                Az iterator beepitett metodus segitsegevel.
+
+
+        - Mutasd be vazlatosan (koddal) az elemek torlesenek a modjat.
+
+                List<String> names = new ArrayList<>();     // tegyuk fel hogy ez egy neveket tartalmazo lista
+
+                        names.add("Emese");
+                        names.add("Edit");
+                        names.add("Elemer");
+                        names.add("Eszter");
+                        names.add("Borsi");
+                        names.add("Babett");
+                        names.add("Barbara");
+                        names.add("Bettina");
+
+                        Iterator<String> iterator = names.iterator();
+
+                        while (iterator.hasNext()) {
+                            String name = iterator.next();
+
+                            if (name.startsWith("B")) {
+                                iterator.remove();
+                            }
+                        }
+
+
+
+
+3. kerdes
+
+        - Ismertesd roviden az OOP koncepciokat a Java-ban.
+
+                OOP koncepciok koze tartozik
+
+                    - absztrakcio (csak az alapveto tulajdonsagokat teszi elerhetove, fo celja a felesleges reszletek elrejtese a felhasznalok elol)
+                    - enkapszulacio (az osztalyok elrejtik "private" - a teszik adott tulajdonsagukat es csak publikus metodusain keresztul teszi elerhetove azokat)
+                    - oroklodes (egy adott osztal egy masik osztaly tulajdonsagait megorokli, csak egyszeres oroklodes lehetseges!)
+                    - tobbalakusag (egy metodus ugyanazzal a nevvel egy masik osztalyban mas dolgot hajt vegre)
+                    - csatolas (lenyegeben az hogy az egyes osztalyok milyen tulajdonsagokat kepeset latni egy masikbol)
+                    - kohezio (egy egyseg egyetlen feladatot lat el)
+                    - asszociaco (az objektumok kozotti kapcsolatot hatarozza meg)
+                    - aggregacio (az association megvalositasa, amelyben az objektum allapotahoz tartozik egy masik objektum, es a tartalmazo objektum onnalloan nem letezik)
+                    - kompozicio (az association megvalositasa, amelyben az objektum allapotahoz tartozik egy másik objektum, es a tartalmazo objektum onnalloan nem letezik)
+
+
+
+
+4. kerdes
+
+        - Milyen adatszerkezet segitsegevel lehetne a gyakorlati feladatok alatt beolvasott meccsek adatait mindig datum szerint rendezett sorrendben tarolni?
+
+                Map adattszerkezettel.                                              Map<Integer,Matches> = new TreeMap;
+
+        - Mit kellene a meccsek adatait tarolo osztalynal valtoztatni, hogy kepes legyen az adatszerkezettel egyuttmukodni?
+
+                A Matches osztaly hashCode-jat.
+
+
+
